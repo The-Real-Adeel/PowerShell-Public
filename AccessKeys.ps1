@@ -26,7 +26,7 @@ foreach ($subscriptionlist in $subscriptionlists) {
         # run Az-log to see if storage account was accessed via Access Keys in the last 90 days
         $accessKeyCheck = Get-AzLog -ResourceId $storageAccount.id -StartTime $Last90Days | Where-Object {$_.authorization.action -eq "Microsoft.Storage/storageAccounts/listKeys/action"}
         #Store the latest one that tried to successfully access as a variable that is not an email (false positive)
-        $LatestAccessAttempt = $accessKeyCheck | where-object {$_.caller -notlike "*central1.com*"} | Select-Object -First 1 
+        $LatestAccessAttempt = $accessKeyCheck | where-object {$_.caller -notlike "*<domain>.com*"} | Select-Object -First 1 
 
         # use if/else to store data in array objects depending on whether something tried to access using Access Keys
         if ($null -ne $LatestAccessAttempt){ #if az-Log is not null

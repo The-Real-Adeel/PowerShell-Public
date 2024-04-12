@@ -1,12 +1,9 @@
 <#
-
 Script: ReplaceTags.ps1
 Author: Adeel Anwar
-
 Description: 
     Scan a subscription for tags, replace them with the new tag and report the results. 
     If the status is blank, it succeeded. If the status has an error, it failed
-
 #>
 
 # Connect-AzAccount

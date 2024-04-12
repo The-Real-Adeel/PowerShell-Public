@@ -9,6 +9,4 @@ foreach ($MGGroupID in $MGGroupIDs) {
         Get-MgUser -UserId $MGMember  | Select-Object -ExpandProperty UserPrincipalName
     }
 }
-
-
 Get-MgUser | Select-Object DisplayName, UserPrincipalName, LicenseDetails   
